@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-auth-jwt",
+  "version": "1.0.0",
+  "description": "project for jwt auth training",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "susanakasato",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
