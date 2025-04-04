@@ -33,6 +33,7 @@ To access this route, the authentication token is required.
 - GET: Returns all the authorized projects. The user with admin role has access to all projects, and the user with basic role has access to his own projects.
 - GET (/{projectId}): Returns the project with the given id on the request parameters. The project is only accessible for the owner of the project or the user with admin role.
 - GET (/user/{userId}): Returns all the projects of the user provided by the user id on the request parameters. This route is only accessible for users with admin roles.
+- DELETE (/{projectId}): Deletes the project with the given id on the request parameters. The project is only deleted if the user is its owner or has the admin role.
 
 ## Run the server
 Once the project is downloaded, run the following command on cli, to install the node modules:
