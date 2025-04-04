@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { authenticate } = require("../authentication");
 const { authorizeRole } = require("../authorization");
-const { getUserByUsername, ROLES, projects, getProjectByUserId } = require("../data");
+const { getUserByUsername, ROLES, projects, getProjectByUserId, deleteProjectById } = require("../data");
 
 const projectRouter = Router();
 
@@ -15,6 +15,11 @@ projectRouter.get("/", authenticate, authorizeProjects, (req, res) => {
 
 projectRouter.get("/user/:userId", authenticate, authorizeProjectsByUser, (req, res) => {
     return res.status(200).send(req.projects);
+})
+
+projectRouter.delete("/:projectId", authenticate, authorizeProject, (req, res) => {
+    if (deleteProjectById(req.params.projectId)) return res.status(204).send();
+    else return res.status(500).send({message: "Something went wrong when deleting the project."});
 })
 
 function authorizeProject(req, res, next) {

@@ -70,11 +70,20 @@ function getProjectByUserId(id) {
     return projects.filter(project => project.user.id == id);
 }
 
+function deleteProjectById(id) {
+    const index = projects.map(project => project.id).indexOf(Number(id));
+    if (index >= 0) {
+        projects.splice(index, 1);
+        return true;
+    } else return false;
+}
+
 module.exports = {
     users,
     ROLES,
     projects,
     getUserByUsername,
     getRole,
-    getProjectByUserId
+    getProjectByUserId,
+    deleteProjectById
 }
